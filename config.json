@@ -1,0 +1,22 @@
+{
+  "coords": {
+    "lat": "41.06",
+    "long": "-72.43"
+            },
+  "tokens" : {
+      "WeatherRadar": "radar",
+      "Satellite": "satellite",
+      "Wind": "",
+      "WindGusts": "gust",
+      "WindAccumulation": "gustAccu",
+      "Rain/Thunder": "rain",
+      "RainAccumulation3D": "rainAccu",
+      "NewSnow": "snowAccu",
+      "SnowDepth": "snowcover",
+      "PrecipitationType": "ptype",
+      "Thunderstorms": "thunder",
+      "Temperature": "temp"
+  }
+
+
+}
