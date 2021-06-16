@@ -11,8 +11,8 @@ config = json.load(f)
 lat = config["coords"]["lat"]
 long = config["coords"]["long"]
 
-BaseURL2 = 'https://www.windy.com/-34.330/175.184?radar,-34.394,175.184'
 BASE_URL = 'https://www.windy.com/'
+SPECIAL_CASES_THAT_I_HATE = ["wind"]
 page = requests.get(BASE_URL)
 
 def pageGetter(token):
@@ -30,16 +30,30 @@ def URLMaker(token):
 def souper(token,htmlPage):
     soup = BeautifulSoup(htmlPage,'html.parser')
     parsedPage = str(soup.find(class_="picker-content noselect"))
-    print(parsedPage)
+    #print(parsedPage)
     regex(token, parsedPage)
 
 def regex(token,parsedHtml):
-    regexMaker = '\\' + config["regexs"][token]
-    expression = re.compile(regexMaker ,flags=re.M)
-    search = expression.findall(parsedHtml)
+    if token in SPECIAL_CASES_THAT_I_HATE:
+        for j in range(len(config["regexs"][token])):
+            regexMaker = config["regexs"][token][str(j)]
+            expression = re.compile(regexMaker ,flags=re.MULTILINE)
+            search = expression.finditer(parsedHtml)
 
-    if search != None:
-        for i in search:
-           print(i[:-3])
+            if search != None:
+                for i in search:
+                    print(i.group(0)[:config["slices"][token][str(j)]])
+                    break
 
-pageGetter("radar")
+    else:
+        regexMaker = config["regexs"][token]
+        expression = re.compile(regexMaker, flags=re.MULTILINE)
+        search = expression.finditer(parsedHtml)
+        if search != None:
+            for i in search:
+                print(i.group(0)[:config["slices"][token]])
+                break
+
+listy = ["radar","satellite","wind","gust","gustAccu","rain","rainAccu","snowAccu"]
+for i in listy:
+    pageGetter(i)
