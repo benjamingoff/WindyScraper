@@ -12,7 +12,7 @@ lat = config["coords"]["lat"]
 long = config["coords"]["long"]
 
 BASE_URL = 'https://www.windy.com/'
-SPECIAL_CASES_THAT_I_HATE = ["wind"]
+SPECIAL_CASES_THAT_I_HATE = ["wind", "snowcover"]
 page = requests.get(BASE_URL)
 
 def pageGetter(token):
@@ -30,7 +30,7 @@ def URLMaker(token):
 def souper(token,htmlPage):
     soup = BeautifulSoup(htmlPage,'html.parser')
     parsedPage = str(soup.find(class_="picker-content noselect"))
-    #print(parsedPage)
+    print(parsedPage)
     regex(token, parsedPage)
 
 def regex(token,parsedHtml):
@@ -44,6 +44,8 @@ def regex(token,parsedHtml):
                 for i in search:
                     print(i.group(0)[:config["slices"][token][str(j)]])
                     break
+                if i.group(0)[:config["slices"][token][str(j)]] == str(0):
+                    break
 
     else:
         regexMaker = config["regexs"][token]
@@ -54,6 +56,6 @@ def regex(token,parsedHtml):
                 print(i.group(0)[:config["slices"][token]])
                 break
 
-listy = ["radar","satellite","wind","gust","gustAccu","rain","rainAccu","snowAccu"]
-for i in listy:
-    pageGetter(i)
+listy = ["radar","satellite","wind","gust","gustAccu","rain","rainAccu","snowAccu","snowcover"]
+
+pageGetter("snowcover")
