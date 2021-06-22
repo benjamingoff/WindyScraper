@@ -13,12 +13,13 @@ long = config["coords"]["long"]
 
 BASE_URL = 'https://www.windy.com/'
 SPECIAL_CASES_THAT_I_HATE = ["wind", "snowcover"]
+listy = ["radar","satellite","wind","gust","gustAccu","rain","rainAccu","snowAccu","snowcover","thunder","temp","dewpoint","rh","deg0","clouds"]
 page = requests.get(BASE_URL)
 
 def pageGetter(token):
     browser = webdriver.Chrome(r'chromedriver.exe')
     browser.get(URLMaker(token))
-    time.sleep(5)
+    time.sleep(1)
     html = browser.page_source
     browser.close()
     souper(token,html)
@@ -56,6 +57,9 @@ def regex(token,parsedHtml):
                 print(i.group(0)[:config["slices"][token]])
                 break
 
-listy = ["radar","satellite","wind","gust","gustAccu","rain","rainAccu","snowAccu","snowcover"]
+def getAll(allTokens):
+    for i in allTokens:
+        pageGetter(i)
 
-pageGetter("snowcover")
+temp = ["efiTemp","efiRain","efiWind"]
+pageGetter("map")
