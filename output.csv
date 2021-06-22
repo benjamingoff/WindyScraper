@@ -1,5 +1,5 @@
-WeatherRadar,6
-Satellite,-14
+WeatherRadar,4
+Satellite,-20
 Wind,330,12
 WindGusts,23
 WindAccumulation,23
@@ -28,8 +28,8 @@ Aerosol,0.153
 OzoneLayer,310
 SO2,0.96
 SurfaceOzone,98.1
-COConcentration,191
-DustMass,4.7
+COConcentration,188
+DustMass,4.6
 FireIntensity,0
 Pressure,29.7
 ExtremeWind,19
