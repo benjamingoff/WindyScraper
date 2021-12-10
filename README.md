@@ -7,3 +7,5 @@ This will install the required libaries.
 # To run the program, call:
     >python3 scraper.py
 On exit, it will print the time taken, and your csv file should be populated.
+
+# NOTE: You will have to download the most recent chromedriver that works for your version of chrome.
