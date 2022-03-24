@@ -30,7 +30,7 @@
       "Thermals": "ccl",
       "SeaTemp": "sst",
       "NO2": "no2",
-      "PM2.5": "pm2p5",
+      "PM25": "pm2p5",
       "Aerosol": "aod550",
       "OzoneLayer": "gtco3",
       "SO2": "tcso2",
