@@ -1,8 +1,8 @@
 {
   "output": "output.csv",
   "coords": {
-    "lat": "41.06",
-    "long": "-72.43"
+    "lat": "44.320",
+    "long": "-74.129"
             },
   "tokens" : {
       "WeatherRadar": "radar",

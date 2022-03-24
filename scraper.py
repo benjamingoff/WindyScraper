@@ -116,7 +116,9 @@ def getAll(allTokens, out, jsonDictionary):
 
 def jsonConverter(jsonDictionary):
     with open('output.json', 'w', encoding='utf-8') as jsonFile:
-        jsonFile.write(json.dumps(jsonDictionary, indent=4))
+        jsonData = dict()
+        jsonData["data"] = jsonDictionary
+        jsonFile.write(json.dumps(jsonData, indent=4))
 
 
 # Main that tracks the time and will print to terminal when done, also handles the opening of the file to be written to
