@@ -1,0 +1,192 @@
+{
+    "WeatherRadar": {
+        "Type": "WeatherRadar",
+        "Value1": "6",
+        "Value2": null
+    },
+    "Satellite": {
+        "Type": "Satellite",
+        "Value1": "-16",
+        "Value2": null
+    },
+    "Wind": {
+        "Type": "Wind",
+        "Value1": "100",
+        "Value2": "13"
+    },
+    "WindGusts": {
+        "Type": "WindGusts",
+        "Value1": "18",
+        "Value2": null
+    },
+    "WindAccumulation": {
+        "Type": "WindAccumulation",
+        "Value1": "32",
+        "Value2": null
+    },
+    "Rain/Thunder": {
+        "Type": "Rain/Thunder",
+        "Value1": "0",
+        "Value2": null
+    },
+    "RainAccumulation3D": {
+        "Type": "RainAccumulation3D",
+        "Value1": "1.79",
+        "Value2": null
+    },
+    "NewSnow": {
+        "Type": "NewSnow",
+        "Value1": "0",
+        "Value2": null
+    },
+    "SnowDepth": {
+        "Type": "SnowDepth",
+        "Value1": "0",
+        "Value2": null
+    },
+    "Thunderstorms": {
+        "Type": "Thunderstorms",
+        "Value1": "0",
+        "Value2": null
+    },
+    "Temperature": {
+        "Type": "Temperature",
+        "Value1": "40",
+        "Value2": null
+    },
+    "DewPoint": {
+        "Type": "DewPoint",
+        "Value1": "29",
+        "Value2": null
+    },
+    "Humidity": {
+        "Type": "Humidity",
+        "Value1": "64",
+        "Value2": null
+    },
+    "FreezingAltitude": {
+        "Type": "FreezingAltitude",
+        "Value1": "9000",
+        "Value2": null
+    },
+    "Clouds": {
+        "Type": "Clouds",
+        "Value1": "99",
+        "Value2": null
+    },
+    "HighClouds": {
+        "Type": "HighClouds",
+        "Value1": "93",
+        "Value2": null
+    },
+    "MediumClouds": {
+        "Type": "MediumClouds",
+        "Value1": "99",
+        "Value2": null
+    },
+    "LowClouds": {
+        "Type": "LowClouds",
+        "Value1": "23",
+        "Value2": null
+    },
+    "CloudTops": {
+        "Type": "CloudTops",
+        "Value1": "9500",
+        "Value2": null
+    },
+    "CloudBase": {
+        "Type": "CloudBase",
+        "Value1": "8700",
+        "Value2": null
+    },
+    "Visibility": {
+        "Type": "Visibility",
+        "Value1": "24.6",
+        "Value2": null
+    },
+    "CAPEIndex": {
+        "Type": "CAPEIndex",
+        "Value1": "0",
+        "Value2": null
+    },
+    "Thermals": {
+        "Type": "Thermals",
+        "Value1": "0",
+        "Value2": null
+    },
+    "SeaTemp": {
+        "Type": "SeaTemp",
+        "Value1": "43",
+        "Value2": null
+    },
+    "NO2": {
+        "Type": "NO2",
+        "Value1": "2.13",
+        "Value2": null
+    },
+    "PM2.5": {
+        "Type": "PM2.5",
+        "Value1": "10",
+        "Value2": null
+    },
+    "Aerosol": {
+        "Type": "Aerosol",
+        "Value1": "0.136",
+        "Value2": null
+    },
+    "OzoneLayer": {
+        "Type": "OzoneLayer",
+        "Value1": "315",
+        "Value2": null
+    },
+    "SO2": {
+        "Type": "SO2",
+        "Value1": "1.99",
+        "Value2": null
+    },
+    "SurfaceOzone": {
+        "Type": "SurfaceOzone",
+        "Value1": "92.41",
+        "Value2": null
+    },
+    "COConcentration": {
+        "Type": "COConcentration",
+        "Value1": "230",
+        "Value2": null
+    },
+    "DustMass": {
+        "Type": "DustMass",
+        "Value1": "12.6",
+        "Value2": null
+    },
+    "FireIntensity": {
+        "Type": "FireIntensity",
+        "Value1": "0",
+        "Value2": null
+    },
+    "Pressure": {
+        "Type": "Pressure",
+        "Value1": "30.24",
+        "Value2": null
+    },
+    "ExtremeWind": {
+        "Type": "ExtremeWind",
+        "Value1": "35",
+        "Value2": null
+    },
+    "ExtremeTemperature": {
+        "Type": "ExtremeTemperature",
+        "Value1": "53",
+        "Value2": null
+    },
+    "ExtremeRain": {
+        "Type": "ExtremeRain",
+        "Value1": "81",
+        "Value2": null
+    },
+    "OutdoorMap": {
+        "Type": "OutdoorMap",
+        "Value1": "26",
+        "Value2": null
+    }
+}
