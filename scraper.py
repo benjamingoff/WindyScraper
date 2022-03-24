@@ -2,6 +2,9 @@
 # For PERSONAL USE only, only intended to get weather data for personal uses.
 # Will be taken down upon request.
 
+# BWG 032322 V1.0.1
+# Added a feature that will also output the scraper's data as JSON, to be read easily into a database.
+
 import time
 import re
 import json
@@ -28,7 +31,7 @@ SPECIAL_CASES_THAT_I_HATE = ["", "snowcover"]
 # Driver to open the page that calls the URLMaker function to get the URL it needs to run on
 # Will sleep for a few seconds after getting the page otherwise it will sometimes not get the content I need
 # Then calls the bs4 function to parse.
-def pageGetter(name, out):
+def pageGetter(name, out, jsonDictionary):
     # tempList that will hold the name of the data I'm getting and will have the data appended to later.
     tempList = [name]
     token = tokens[name]
@@ -37,7 +40,7 @@ def pageGetter(name, out):
     time.sleep(2)
     html = browser.page_source
     browser.close()
-    souper(token, html, tempList, out)
+    souper(token, html, tempList, out, jsonDictionary)
 
 
 # Helper function to make the URL based on the token that is passed in.
@@ -48,14 +51,14 @@ def URLMaker(token):
 
 # Parses the page for a subsection that has the information that's I want
 # Then calls the regex function that will regex magic the data out
-def souper(token, htmlPage, tempList, out):
+def souper(token, htmlPage, tempList, out, jsonDictionary):
     soup = BeautifulSoup(htmlPage, 'html.parser')
     parsedPage = str(soup.find(class_="picker-content noselect"))
-    regex(token, parsedPage, tempList, out)
+    regex(token, parsedPage, tempList, out, jsonDictionary)
 
 
 # Runs a regular expression on the string of the HTML that the souper function has parsed for me
-def regex(token, parsedHtml, tempList, out):
+def regex(token, parsedHtml, tempList, out, jsonDictionary):
     # If it's in the special cases where I need to run multiple regexs it will go into this
     if token in SPECIAL_CASES_THAT_I_HATE:
         # Run this as for many regexes apply to this case
@@ -79,6 +82,11 @@ def regex(token, parsedHtml, tempList, out):
                 tempList.append('ERROR')
         # Writes the list to the csv file as a row
         out.writerow(tempList)
+        if len(tempList) == 2:
+            jsonDictionary[tempList[0]] = float(tempList[1])
+        else:
+            tempListToFloat = [float(item) for item in tempList[1:]]
+            jsonDictionary[tempList[0]] = tempListToFloat
 
     else:
         # Same as above, but this is for the single regex method
@@ -93,40 +101,33 @@ def regex(token, parsedHtml, tempList, out):
             tempList.append('ERROR')
 
         out.writerow(tempList)
+        if len(tempList) == 2:
+            jsonDictionary[tempList[0]] = float(tempList[1])
+        else:
+            tempListToFloat = [float(item) for item in tempList[1:]]
+            jsonDictionary[tempList[0]] = tempListToFloat
 
 
 # Function that will run a loop of the driving function on all of the tokens in config.
-def getAll(allTokens, out):
-    testVar = 0
+def getAll(allTokens, out, jsonDictionary):
     for i in allTokens:
-        if testVar < 10:
-            pageGetter(i, out)
-        testVar += 1
+        pageGetter(i, out, jsonDictionary)
 
 
-def jsonConverter():
-    jsonData = {}
-
-    with open('output.csv', encoding='utf-8') as csvFile:
-        csvReader = csv.DictReader(csvFile)
-
-        for row in csvReader:
-            jsonKey = row['Type']
-            jsonData[jsonKey] = row[1:]
-
+def jsonConverter(jsonDictionary):
     with open('output.json', 'w', encoding='utf-8') as jsonFile:
-        jsonFile.write(json.dumps(jsonData, indent=4))
+        jsonFile.write(json.dumps(jsonDictionary, indent=4))
 
 
 # Main that tracks the time and will print to terminal when done, also handles the opening of the file to be written to
 def main():
     timeStart = time.time()
+    jsonDictionary = {}
     with open(config["output"], mode='w', newline='') as outputFile:
-        outputFileWrite = csv.writer(outputFile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
-        outputFileWrite.writerow(['Type', 'Value1', 'Value2'])
-        getAll(tokens, outputFileWrite)
+        csvOutputFileWrite = csv.writer(outputFile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
+        getAll(tokens, csvOutputFileWrite, jsonDictionary)
     print("Time Taken: " + str(time.time() - timeStart))
-    jsonConverter()
+    jsonConverter(jsonDictionary)
 
 
 # Boilerplate python stuff
