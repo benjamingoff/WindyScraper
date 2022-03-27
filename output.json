@@ -1,6 +1,6 @@
 {
     "WeatherRadar": 0.0,
-    "Satellite": -11.0,
+    "Satellite": -16.0,
     "Wind": [
         220.0,
         6.0
@@ -29,18 +29,18 @@
     "CAPEIndex": 1.0,
     "Thermals": 0.0,
     "SeaTemp": 26.0,
-    "NO2": 4.35,
-    "PM25": [],
-    "Aerosol": 0.105,
+    "NO2": 3.89,
+    "PM25": 3.0,
+    "Aerosol": 0.097,
     "OzoneLayer": 398.0,
-    "SO2": 2.63,
-    "SurfaceOzone": 55.21,
+    "SO2": 2.41,
+    "SurfaceOzone": 56.75,
     "COConcentration": 226.0,
     "DustMass": 3.8,
     "FireIntensity": 0.0,
     "Pressure": 29.43,
     "ExtremeWind": 32.0,
-    "ExtremeTemperature": -14.0,
+    "ExtremeTemperature": [],
     "ExtremeRain": 16.0,
     "OutdoorMap": 1565.0
 }
