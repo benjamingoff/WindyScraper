@@ -38,7 +38,7 @@ def pageGetter(name, out, jsonDictionary):
     token = tokens[name]
     browser = webdriver.Chrome(r'chromedriver.exe')
     browser.get(URLMaker(token))
-    time.sleep(2)
+    time.sleep(3)
     html = browser.page_source
     browser.close()
     souper(token, html, tempList, out, jsonDictionary)
@@ -102,6 +102,8 @@ def regex(token, parsedHtml, tempList, out, jsonDictionary):
             tempList.append('ERROR')
 
         out.writerow(tempList)
+        if len(tempList) == 1:
+            jsonDictionary[tempList[0]] = 0
         if len(tempList) == 2:
             jsonDictionary[tempList[0]] = float(tempList[1])
         else:
@@ -130,7 +132,7 @@ def main():
         getAll(tokens, csvOutputFileWrite, jsonDictionary)
     print("Time Taken: " + str(time.time() - timeStart))
     jsonConverter(jsonDictionary)
-    time.sleep(1)
+    time.sleep(3)
     addToDatabase.addToDatabase()
 
 

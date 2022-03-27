@@ -1,6 +1,6 @@
 {
     "WeatherRadar": 0.0,
-    "Satellite": -16.0,
+    "Satellite": -17.0,
     "Wind": [
         220.0,
         6.0
@@ -40,7 +40,7 @@
     "FireIntensity": 0.0,
     "Pressure": 29.43,
     "ExtremeWind": 32.0,
-    "ExtremeTemperature": [],
+    "ExtremeTemperature": -14.0,
     "ExtremeRain": 16.0,
     "OutdoorMap": 1565.0
 }

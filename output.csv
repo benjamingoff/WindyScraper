@@ -1,5 +1,5 @@
 WeatherRadar,0
-Satellite,-16
+Satellite,-17
 Wind,220,6
 WindGusts,13
 WindAccumulation,29
@@ -33,6 +33,6 @@ DustMass,3.8
 FireIntensity,0
 Pressure,29.43
 ExtremeWind,32
-ExtremeTemperature
+ExtremeTemperature,-14
 ExtremeRain,16
 OutdoorMap,1565
