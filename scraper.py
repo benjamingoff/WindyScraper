@@ -127,13 +127,19 @@ def jsonConverter(jsonDictionary):
 def main():
     timeStart = time.time()
     jsonDictionary = {}
+
     with open(config["output"], mode='w', newline='') as outputFile:
         csvOutputFileWrite = csv.writer(outputFile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
         getAll(tokens, csvOutputFileWrite, jsonDictionary)
     print("Time Taken: " + str(time.time() - timeStart))
     jsonConverter(jsonDictionary)
     time.sleep(3)
-    addToDatabase.addToDatabase()
+
+    try:
+        addToDatabase.addToDatabase()
+
+    except:
+        print('Unable to connect to database/database error.')
 
 
 # Boilerplate python stuff
