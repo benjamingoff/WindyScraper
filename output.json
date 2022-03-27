@@ -1,9 +1,8 @@
 {
-    "data": {
         "WeatherRadar": 41.0,
         "Satellite": -39.0,
         "Wind": [
-            120.0,
+            123123.0,
             8.0
         ],
         "WindGusts": 22.0,
@@ -44,5 +43,4 @@
         "ExtremeTemperature": 35.0,
         "ExtremeRain": 56.0,
         "OutdoorMap": 1565.0
-    }
 }
