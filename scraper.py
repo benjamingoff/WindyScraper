@@ -11,6 +11,7 @@ import json
 import csv
 from bs4 import BeautifulSoup
 from selenium import webdriver
+import addToDatabase
 
 # Gets the config file from the same directory and loads it in
 f = open('config.json', 'r')
@@ -116,8 +117,7 @@ def getAll(allTokens, out, jsonDictionary):
 
 def jsonConverter(jsonDictionary):
     with open('output.json', 'w', encoding='utf-8') as jsonFile:
-        jsonData = dict()
-        jsonData["data"] = jsonDictionary
+        jsonData = jsonDictionary
         jsonFile.write(json.dumps(jsonData, indent=4))
 
 
@@ -130,6 +130,8 @@ def main():
         getAll(tokens, csvOutputFileWrite, jsonDictionary)
     print("Time Taken: " + str(time.time() - timeStart))
     jsonConverter(jsonDictionary)
+    time.sleep(1)
+    addToDatabase.addToDatabase()
 
 
 # Boilerplate python stuff
