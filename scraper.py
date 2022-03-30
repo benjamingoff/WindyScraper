@@ -120,6 +120,7 @@ def getAll(allTokens, out, jsonDictionary):
 def jsonConverter(jsonDictionary):
     with open('output.json', 'w', encoding='utf-8') as jsonFile:
         jsonData = jsonDictionary
+        jsonData['Time'] = time.time()
         jsonFile.write(json.dumps(jsonData, indent=4))
 
 
