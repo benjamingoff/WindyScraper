@@ -117,6 +117,7 @@ def getAll(allTokens, out, jsonDictionary):
         pageGetter(i, out, jsonDictionary)
 
 
+# Takes in the jsonDictionary of key:values for all of the weather stats, adds a timestamp, writes to a json file.
 def jsonConverter(jsonDictionary):
     with open('output.json', 'w', encoding='utf-8') as jsonFile:
         jsonData = jsonDictionary
@@ -129,13 +130,16 @@ def main():
     timeStart = time.time()
     jsonDictionary = {}
 
+    # Output file to write to
     with open(config["output"], mode='w', newline='') as outputFile:
         csvOutputFileWrite = csv.writer(outputFile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
         getAll(tokens, csvOutputFileWrite, jsonDictionary)
+
     print("Time Taken: " + str(time.time() - timeStart))
     jsonConverter(jsonDictionary)
     time.sleep(3)
 
+    # Tries to put the file into the database, will print error if it's not able to.
     try:
         addToDatabase.addToDatabase()
 
