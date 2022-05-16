@@ -46,7 +46,7 @@ def pageGetter(name, out, jsonDictionary):
 
 # Helper function to make the URL based on the token that is passed in.
 def URLMaker(token):
-    URL = BASE_URL + lat + '/' + long + '?' + token + ',' + lat + ',' + long
+    URL = BASE_URL + lat + '/' + long + '?' + 'namConus' + ',' + token + ',' + lat + ',' + long
     return URL
 
 
