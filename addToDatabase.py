@@ -10,7 +10,7 @@ def addToDatabase():
 
     # Try connecting using private key
     try:
-        cred = credentials.Certificate('windyapidatabase-firebase-adminsdk-p6hix-03ddb8fbaf.json')
+        cred = credentials.Certificate('windyapidatabase-8c508aa9c3e9.json')
         firebase_admin.initialize_app(cred)
 
         db = firestore.client()
