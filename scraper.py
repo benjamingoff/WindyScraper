@@ -13,6 +13,8 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 import addToDatabase
 
+
+SLEEP_TIME = 10
 # Gets the config file from the same directory and loads it in
 f = open('config.json', 'r')
 config = json.load(f)
@@ -38,7 +40,7 @@ def pageGetter(name, out, jsonDictionary):
     token = tokens[name]
     browser = webdriver.Chrome(r'chromedriver.exe')
     browser.get(URLMaker(token))
-    time.sleep(3)
+    time.sleep(SLEEP_TIME)
     html = browser.page_source
     browser.close()
     souper(token, html, tempList, out, jsonDictionary)
