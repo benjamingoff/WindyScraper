@@ -45,7 +45,7 @@
       "OutdoorMap": "map"
   },
     "regexs": {
-      "radar": "\\d+(?:dBZ)",
+      "radar": "\\d+.?\\d?mm/h",
       "satellite": "-?\\d+.(?:C)",
       "": {"0": "\\d+(?:deg)", "1": "\\d+(?:kt)"},
       "gust": "\\d+(?:kt)",
@@ -85,7 +85,7 @@
       "map": "\\d+(?:ft)"
   },
   "slices": {
-      "radar": -3,
+      "radar": -4,
       "satellite": -2,
       "": {"0": -3, "1": -2},
       "gust": -2,
